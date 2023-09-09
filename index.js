@@ -6,7 +6,7 @@ var cors = require('cors')
 const connectDB = require("./src/config/db.config");
 const userRoute = require("./src/routes/user");
 const categoryRoute = require("./src/routes/category");
-const client = require("twilio")(process.env.SID, process.env.AUTH_TOKEN);
+// const client = require("twilio")(process.env.SID, process.env.AUTH_TOKEN);
 const otpGenerator = require("otp-generator");
 
 const app = express();
