@@ -23,7 +23,6 @@ const postCategory = async (req, res) => {
 
 const postCategories = (req, res) => {
   console.log(req.body);
-  // const {name,src,subCategories} = req.body;
   Category.insertMany(req.body)
     .then((res) => console.log(res))
     .catch((err) => console.log(err));
