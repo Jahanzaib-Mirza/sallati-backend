@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Order Details</title>
+    <style>
+        /* Inline CSS for styling */
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
+        }
+
+        h2 {
+            margin-bottom: 40px;
+        }
+
+        table {
+            width: 100%;
+            font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            text-align: left;
+            border: 1px solid #000; /* Add your border styles here */
+            padding: 6px;
+        }
+
+        th {
+            font-weight: bold;
+        }
+
+        /* Customize any additional CSS styles here */
+    </style>
+</head>
+<body>
+  <p>Hi. <%= lastName %></p>
+  <p>Just to let you know — we've received your order #3049, and it is now being processed:</p>
+  <p>Pay with cash upon delivery.</p>
+    <h2>
+        <a class="link" href="order-edit-url">[Order #123] (September 30, 2023)</a>
+    </h2>
+    <div style="margin-bottom: 40px;">
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col" style="text-align: left;">Product</th>
+                    <th scope="col" style="text-align: left;">Quantity</th>
+                    <th scope="col" style="text-align: left;">Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Example row for an order item -->
+                <% products.forEach((item)=>{ %>
+                    <tr>
+                        <td><%= item.name %></td>
+                        <td><%= item.quantity %></td>
+                        <td><%= item.price %></td>
+                    </tr>
+                <% }) %>
+                <!-- Add more rows for additional order items if needed -->
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th colspan="2" style="text-align: left; border-top-width: 4px;">Subtotal</th>
+                    <td style="text-align: left; border-top-width: 4px;"><%= subTotal %> </td>
+                </tr>
+                <tr>
+                    <th colspan="2" style="text-align: left;">Shipping</th>
+                    <td style="text-align: left;">$3.99</td>
+                </tr>
+                <tr>
+                    <th colspan="2" style="text-align: left;">Payment Method</th>
+                    <td style="text-align: left;"><%= paymentMethod %></td>
+                </tr>
+                <!-- You can add more rows for additional totals here -->
+                <tr>
+                    <th colspan="2" style="text-align: left;">Note:</th>
+                    <td style="text-align: left;">Customer's note goes here</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    <h2>Billing Address</h2>
+    <p><%= firstName %> <%= lastName %></p>
+    <p><%= address %></p>
+    <p><%= city %></p>
+    <p><%= email %></p>
+</body>
+</html>

@@ -6,6 +6,7 @@ var cors = require('cors')
 const connectDB = require("./src/config/db.config");
 const userRoute = require("./src/routes/user");
 const categoryRoute = require("./src/routes/category");
+const checkoutRoute = require("./src/routes/checkout");
 const Category = require("./src/models/categoryModel");
 
 const app = express();
@@ -21,6 +22,7 @@ app.get("/clean", async(req, res) => {
 
 app.use("/api/users", userRoute);
 app.use("/api/categories", categoryRoute);
+app.use("/api/checkout",checkoutRoute)
 
 const start = async () => {
   await connectDB();
