@@ -11,8 +11,8 @@ const transporter = nodeMailer.createTransport({
   },
 });
 
-const receivedOrder =  ({ email, firstName, lastName,products,subTotal,paymentMethod, country, city,address }) => {
-    ejs.renderFile(path.join(__dirname,"..","templates","received.ejs"),{firstName,city,address,email,lastName,products,subTotal,paymentMethod},async(err,data)=>{
+const receivedOrder =  ({ email, firstName, lastName,products,subTotal,paymentMethod, total,shipping, city,address }) => {
+    ejs.renderFile(path.join(__dirname,"..","templates","received.ejs"),{firstName,city,address,email,total,shippinglastName,products,subTotal,paymentMethod},async(err,data)=>{
         if(err){
             throw err;
         }else{
