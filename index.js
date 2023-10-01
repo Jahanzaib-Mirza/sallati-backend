@@ -4,13 +4,16 @@ const bodyParser = require("body-parser");
 var cors = require('cors')
 
 const connectDB = require("./src/config/db.config");
+//Models
+const Category = require("./src/models/categoryModel");
+//Routes
 const userRoute = require("./src/routes/user");
 const categoryRoute = require("./src/routes/category");
 const checkoutRoute = require("./src/routes/checkout");
-const Category = require("./src/models/categoryModel");
 
 const app = express();
 const port = process.env.PORT || 9000;
+//Middlewares
 app.use(cors())
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
