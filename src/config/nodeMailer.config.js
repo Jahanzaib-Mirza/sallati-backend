@@ -10,7 +10,7 @@ const transporter = nodeMailer.createTransport({
   },
 });
 
-const receivedOrder = (data) => {
+const receivedOrder =  (data) => {
   const {
     email,
     fname,
@@ -45,21 +45,17 @@ const receivedOrder = (data) => {
       subTotal,
       paymentMethod,
     },
-    async (err, data) => {
-      try {
+     (err, data) => {
         if (err) {
-          return err;
+           throw err;
         } else {
-          await transporter.sendMail({
+           transporter.sendMail({
             from: process.env.EMAIL,
-            to: "mmmubeen761@gmail.com",
+            to: ["mmmubeen761@gmail.com",email],
             subject: "Your Sallati Mini Mart order has been received!",
             html: data,
           });
-        } 
-      } catch (error) {
-        throw error;
-      }
+        }   
     }
   );
 };
